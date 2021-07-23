@@ -1,0 +1,478 @@
+/* MainPage Padding */
+
+#mainpage {
+    padding-top: 60px;
+}
+
+/* MainPage Padding */
+
+/* Body Classes */
+
+textarea {
+    -moz-user-select: text;
+}
+
+body.dark {
+    background-color: rgb(194, 194, 194);
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.light {
+    color: white;
+}
+
+hr.my-4 {
+    background-color: white;
+}
+
+/* Body Classes */
+
+/* Navbar Class */
+
+a, a:active, a:hover, a:focus{
+    outline: none;
+    text-decoration: none;
+}
+
+button, button:active, button:hover, button:focus {
+    outline: none;
+}
+
+.lightnav {
+    color: white;
+    font-weight: 400;
+    margin-left: 0.5%;
+    margin-right: 0.2%;
+    float: left;
+}
+
+.dropbtn1 {
+    color: white;
+    padding: 16px;
+    background-color: #2d2d2e;
+    border: transparent;
+}
+
+.dropdown1 {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: rgb(60, 70, 78);
+    color: white;
+    border: transparent;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content1 a {
+    color: white;
+    padding: 12px 16px;
+    font-size: 1rem;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content1 a:hover {
+    color: rgb(89, 203, 255);
+    border: transparent;
+    text-decoration: none;
+}
+
+.dropdown1:hover .dropdown-content1 {
+    display: block;
+}
+
+#mainnav {
+    font-size: 1.5rem;
+    font-weight: 100;
+    font-family: 'Share Tech';
+    z-index: 9999;
+}
+
+#mainnav .nav-link {
+    color: white;
+    padding: 5px;
+    outline: transparent;
+}
+
+#mainnav .nav-link:hover {
+    color: rgb(89, 203, 255);
+}
+
+#mainnav .navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(89, 203, 255);
+}
+
+.navbar.scrolled {
+    background-color: #2d2d2e;
+}
+
+@media screen and (max-width: 768px) {
+    a i.fa-caret-down {
+        visibility: hidden;
+    }
+
+    .dropdown1:hover .dropdown-content1 {
+        display: none;
+    }
+}
+
+
+/* Navbar Class */
+
+/* ATLAS Nav Classes */
+
+#atlasNav1 {
+    margin-top: 50px;
+    z-index: 9998;
+}
+
+#atlasNav1 .navbar-brand {
+    font-size: 2.5rem;
+}
+
+#subNav {
+    margin-top: 126px;
+    z-index: 9997;
+}
+
+.dataChoice {
+    float: left;
+}
+
+.atNav {
+    background-color: #006e99;
+}
+
+.srch-box {
+    position: relative;
+    top: 30px;
+    transform: translate(-0%, -50%);
+    background: transparent;
+    height: 60px;
+    border-radius: 40px;
+    padding: 10px;
+    transition: 0.4s;
+}
+
+.srch-box:hover {
+    background: rgba(112, 159, 212, 0.335);
+}
+
+.srch-box:hover>.srch-txt {
+    width: 80%;
+    padding: 0 2%;
+}
+
+.srch-box:hover>.srch-butn {
+    background: white;
+    color: rgb(79, 172, 248);
+    cursor: pointer;
+}
+
+.srch-butn {
+    color: white;
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(112, 159, 212, 0.335);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.srch-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 20px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0%;
+}
+
+.navIco {
+    color: #509ab8;
+}
+
+.hova1 {
+    color: transparent;
+    font-size: 4px;
+    width: 6px;
+}
+
+.hova {
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+.hova:hover {
+    color: white;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.hova:hover > .hova1 {
+    color: white;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+.hova1Active { 
+    color: white;
+    font-weight: bold;
+}
+
+.hovaSubActive {
+    background-color: #006e99;
+    color: white;
+}
+
+.hovaSub:hover {
+    background-color: #006e99;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.hovaSub {
+    padding: 1rem;
+}
+
+.lightNav2 {
+    color: #8dcae2;
+    font-size: 1.6rem;
+    transition: 0.4s;
+}
+
+.lightNav2:hover {
+    color: white;
+    transition: 0.4s;
+}
+
+.lightNav3 {
+    color: #7c7c7c;
+    font-size: 2rem;
+    transition: 0.4s;
+}
+
+.lightNav3:hover {
+    color: white;
+    transition: 0.4s;
+}
+
+.lightNav4 {
+    color: #252525;
+    text-align: center;
+    font-size: 5rem;
+    transition: 0.4s;
+}
+
+.lightNav4:hover {
+    color: rgb(7, 190, 246);
+    transition: 0.4s;
+}
+
+.lightNav5 {
+    color: #8dcae2;
+    font-size: 2rem;
+    transition: 0.4s;
+}
+
+.lightNav5:hover {
+    font-size: 2rem;
+    color: white;
+    transition: 0.4s;
+}
+
+/* ATLAS Nav Classes */
+
+/* ATLAS BODY CLASSES */
+
+div.bodyCol {
+    background: rgb(233, 233, 233);
+    min-width: 80%;
+    margin-top: 5rem;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.tblClass {
+    margin-top: 1%;
+    margin-bottom: 30%;
+}
+
+.thClass {
+    min-width: 120px;
+    cursor: pointer;
+}
+
+thead tr th.thClass:hover {
+    background-color: rgba(74, 86, 93, 0.253);
+    color: white;
+
+}
+
+.table-hover {
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 767px) {
+    #dataSite {
+        margin-left: 5rem;
+    }
+
+}
+
+@media screen and (max-width: 575px) {
+
+}
+
+@media screen and (max-width: 498px) {
+    .hovaSub {
+        padding: 0.6rem;
+        font-size: 15px;
+    }
+    #dataSite {
+        margin-left: 2.5rem;
+    }
+    .table {
+        font-size: 16px;
+    }
+    .thClass {
+        min-width: 105px;
+    }
+    div.bodyCol {
+        margin-top: 4.5rem;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .hovaSub {
+        padding: 0.5rem;
+        font-size: 14px;
+    }
+    #dataSite {
+        margin-left: 3rem;
+    }
+    .table {
+        font-size: 15px;
+    }
+    div.bodyCol {
+        margin-top: 4.4rem;
+    }
+}
+
+@media screen and (max-width: 364px) {
+    .hovaSub {
+        padding: 0.4rem;
+        font-size: 13px;
+    }
+    #dataSite {
+        margin-left: 2.5rem;
+    }
+    .table {
+        font-size: 14px;
+    }
+    div.bodyCol {
+        margin-top: 4rem;
+    }
+}
+
+@media screen and (max-width: 336px) {
+    .hovaSub {
+        padding: 0.2rem;
+        font-size: 12.5px;
+    }
+    #dataSite {
+        margin-left: 2rem;
+    }
+    div.bodyCol {
+        margin-top: 4rem;
+    }
+}
+
+@media screen and (max-width: 316px) {
+    .hovaSub {
+        padding: 0.3rem;
+        font-size: 12px;
+    }
+    #dataSite {
+        margin-left: 3rem;
+    }
+    div.bodyCol {
+        margin-top: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 311px) {
+    .hovaSub {
+        padding: 0.2rem;
+        font-size: 11.5px;
+    }
+    #dataSite {
+        margin-left: 2.5rem;
+    }
+    div.bodyCol {
+        margin-top: 3rem;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    .hovaSub {
+        padding: 0.1rem;
+        font-size: 11.5px;
+    }
+    #dataSite {
+        margin-left: 1rem;
+    }
+    div.bodyCol {
+        margin-top: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 259px) {
+    .hovaSub {
+        padding: 0.1rem;
+        font-size: 11px;
+    }
+    #dataSite {
+        margin-left: 0;
+    }
+    div.bodyCol {
+        margin-top: 2.3rem;
+    }
+}
+
+@media screen and (max-width: 232px) {
+    .hovaSub {
+        padding: 0;
+        font-size: 10px;
+    }
+    #dataSite {
+        margin-left: 0;
+    }
+    div.bodyCol {
+        margin-top: 2rem;
+    }
+}
+
+/* ATLAS BODY CLASSES */

@@ -1,0 +1,321 @@
+textarea {
+    -moz-user-select: text;
+}
+
+input {
+    display: none;
+    font-size: 20px;
+    font-weight: 400;
+    border: none;
+    width: 100%;
+    margin-top: 0;
+    padding: 2%;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    border: 3px solid rgba(0, 0, 0, 0);
+    border-bottom: 2px outset rgba(128, 128, 128, 0.274);
+}
+
+input:hover {
+    color: rgb(0, 140, 255);
+}
+
+input:focus {
+    color: rgb(0, 140, 255);
+    border: 2px solid rgb(0, 140, 255);
+    outline: none;
+}
+
+#container {
+    float: left;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    background-color: rgb(240, 240, 240);
+    margin: 0 auto;
+    padding: 0;
+    margin-top: 100px;
+    width: 400px;
+    height: 700px;
+    border-radius: 2%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+  
+
+.todoappbody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #006e99;
+
+}
+
+.todoTitle {
+    background-color: rgb(0, 140, 255);
+    padding: 3%;
+    margin-top: 0;
+    padding-top: 4%;
+    margin-bottom: 0;
+    color: white;
+    text-transform: uppercase;
+    font-size: 26px;
+    font-weight: normal;
+    width: 100%;
+    float: left;
+}
+
+.todoItm {
+	background: white;
+	color: rgb(56, 56, 56);
+	margin: 0;
+	padding: 0;
+	height: auto;
+	min-height: 40px;
+	box-sizing: border-box;
+	display: flex;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.todoItm::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.todoItm:nth-child(2n) {
+    background-color: #f7f7f7;
+}
+
+.todoItm:hover .delet {
+    width: 40px;
+    min-width: 40px;
+    opacity: 1.0;
+}
+
+.todoItm:hover .fa-trash-alt {
+    visibility: visible;
+    opacity: 1.0;
+}
+
+.fa-trash-alt {
+    visibility: hidden;
+}
+
+.listItm {
+    font-size: 1.3rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+	margin: auto 0;
+	height: 100%;
+    padding: 5px 40px 5px 10px;
+    box-sizing: border-box;
+}
+
+.todoItmContain {
+    padding: 0;
+    margin: 0;
+}
+
+.title {
+    width: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Ruda', sans-serif;
+}
+
+.content {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    float: left;
+}
+
+.delet {
+    display: inline-block;
+    width: 0;
+    min-width: 0;
+    min-height: 40px;
+    font-size: 20px;
+    padding: 1%;
+    border: transparent;
+    color: white;
+    cursor: pointer;
+    background-color: red;
+    opacity: 0;
+    transition: 0.2s linear;
+}
+
+.delet:active {
+    cursor: pointer;
+    color: black;
+    background-color: rgb(202, 196, 196);
+}
+
+.menuBar {
+    display: none;
+    float: left;
+    padding: 0;
+    z-index: 900;
+    border-bottom: 2px outset rgba(128, 128, 128, 0.274);
+    width: 100%;
+    background-color: transparent;
+}
+
+.activedelAll {
+    display: block;
+}
+
+.deletAllbtn {
+    display: none;
+    float: left;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    font-size: 19px;
+    padding: 1%;
+    border: transparent;
+    color: white;
+    cursor: pointer;
+    background-color: red;
+}
+
+.deletAll:active {
+    cursor: pointer;
+    color: black;
+    background-color: rgb(202, 196, 196);
+}
+
+.exitAppBtn {
+    float: right;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    font-size: 19px;
+    padding: 1%;
+    border: transparent;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(0, 140, 255);
+    outline: none;
+
+}
+
+.exitAppBtn:active, .exitAppBtn:focus {
+    outline: none;
+}
+
+.exitAppBtn:hover {
+    background-color: rgb(43, 58, 66);
+    color: rgb(236, 236, 236);
+}
+
+
+.undo {
+    display: none;
+    float: left;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    font-size: 19px;
+    padding: 1%;
+    border: transparent;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(34, 157, 168);
+}
+
+.checked {
+    text-decoration: line-through;
+    color: rgb(172, 172, 172);
+}
+
+
+/* Tooltip Text */
+.tooltiptextz {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.tooltipz .tooltiptextz {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltipz:hover .tooltiptextz {
+    visibility: visible;
+    opacity: 1;
+}
+/* Tooltip Text */
+
+.navIco {
+    float: right;
+    border: none;
+    background-color: transparent;
+    margin: 2%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.navIco:hover {
+    color: rgb(189, 189, 189);
+}
+
+
+.taskicon {
+    float: left;
+    border: none;
+    background-color: transparent;
+    margin-right: 3%;
+    font-size: 30px;
+    color: white;
+}
+
+@media screen and (max-width: 700px) {
+    .delet {
+        width: 40px;
+        min-width: 40px;
+        opacity: 1.0;
+    }
+    .fa-trash-alt {
+        visibility: visible;
+        opacity: 1.0;
+    }
+    .tooltipz .tooltiptextz {
+        display: none;
+    }
+    #container {
+        width: 300px;
+    }
+
+    .exitAppBtn:hover {
+        background-color: rgb(0, 140, 255);
+        color: white;
+    }
+
+    
+  }

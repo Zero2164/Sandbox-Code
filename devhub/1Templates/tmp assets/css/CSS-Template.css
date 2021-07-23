@@ -1,0 +1,125 @@
+/* MainPage Padding */
+#mainpage {
+    padding-top: 60px;
+}
+/* MainPage Padding */
+
+/* Body Classes */
+textarea {
+    -moz-user-select: text;
+}
+
+body.dark {
+    background-color: #006e99;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.light {
+    color: white;
+}
+
+hr.my-4 {
+    background-color: white;
+}
+
+/* Body Classes */
+
+/* Navbar Class */
+
+nav a {
+    outline: transparent;
+}
+
+.lightnav {
+    color: white;
+    font-weight: 400;
+    margin-left: 0.5%;
+    margin-right: 0.2%;
+    float: left;
+}
+
+.dropbtn1 {
+    color: white;
+    padding: 16px;
+    background-color: #2d2d2e;
+    border: transparent;
+}
+
+.dropdown1 {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: rgb(60, 70, 78);
+    color: white;
+    border: transparent;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content1 a {
+    color: white;
+    padding: 12px 16px;
+    font-size: 1rem;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content1 a:hover {
+    color: rgb(89, 203, 255);
+    border: transparent;
+    text-decoration: none;
+}
+
+.dropdown1:hover .dropdown-content1 {
+    display: block;
+}
+
+#mainnav {
+    font-size: 1.5rem;
+    font-weight: 100;
+    font-family: 'Share Tech';
+}
+
+#mainnav .nav-link {
+    color: white;
+    padding: 5px;
+    outline: transparent;
+}
+
+#mainnav .nav-link:hover {
+    color: rgb(89, 203, 255);
+}
+
+#mainnav .navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(89, 203, 255);
+}
+.navbar.scrolled {
+    background-color: #2d2d2e;
+}
+
+@media screen and (max-width: 768px) {
+    a i.fa-caret-down {
+        visibility: hidden;
+    }
+
+    .dropdown1:hover .dropdown-content1 {
+        display: none;
+    }
+}
+
+button#buttOp {
+    outline: none;
+}
+
+/* Navbar Class */

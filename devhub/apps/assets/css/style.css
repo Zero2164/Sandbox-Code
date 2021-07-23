@@ -1,0 +1,264 @@
+/* MainPage Padding */
+#mainpage {
+    padding-top: 60px;
+}
+/* MainPage Padding */
+
+/* Body Classes */
+textarea {
+    -moz-user-select: text;
+}
+
+body.dark {
+    background-color: #006e99;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.light {
+    color: white;
+}
+
+hr.my-4 {
+    background-color: white;
+}
+
+div.jumbotron {
+    background-color: rgb(67, 92, 112);
+    margin-top: 10%;
+    text-align: center;
+
+}
+
+div.title {
+    color: white;
+    font-family: 'Share Tech';
+}
+
+.catgryBox {
+    float: left;
+    text-align: center;
+    border: 2px solid rgba(128, 128, 128, 0.144);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 315px;
+    height: 315px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin: 10px;
+    background-color: #35425277;
+}
+
+.boxes {
+    float: left;
+    z-index: 8;
+    width: 100%;
+}
+
+.boximgs {
+    display: none;
+    width: 315px;
+    height: 400px;
+    outline: none;
+    transition: 0.4s;
+}
+.boxtxt {
+    font-size: 3rem;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: 'Share Tech';
+    color: white;
+    text-transform: uppercase;
+}
+
+.catgryBox:hover {
+    border-color: grey;
+    width: 315px;
+    height: 315px;
+    transition: 0.4s;
+}
+
+.catgryBox:hover .boximgs {
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .boxes {
+        margin-left: 15%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .boxes {
+        margin-left: 6rem;
+    }
+}
+
+@media screen and (max-width: 543px) {
+    .boxes {
+        margin-left: 3rem;
+        padding-left: 0;
+        padding: 0;
+    }
+
+    /* div.jumbotron {
+        max-width: 400px;
+        min-width: 400px;
+    } */
+
+    .boximgs {
+        width: 275px;
+    }
+
+    .catgryBox:hover {
+        border-color: grey;
+        width: 275px;
+        height: 275px;
+        transition: 0.4s;
+    }
+
+    .boxtxt {
+        font-size: 1.5rem;
+    }
+
+    .catgryBox {
+        width: 275px;
+        height: 275px;
+    }
+}
+
+@media screen and (max-width: 424px) {
+    .boxes {
+        margin-left: 2rem;
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .boxes {
+        margin-left: 3rem;
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 411px) {
+    .boxes {
+        margin-left: 2.8rem;
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .boxes {
+        margin-left: 0.8rem;
+        margin-right: 0;
+    }
+
+}
+
+
+/* Body Classes */
+
+/* Navbar Class */
+
+a, a:active, a:hover, a:focus{
+    outline: none;
+    text-decoration: none;
+}
+
+button, button:active, button:hover, button:focus {
+    outline: none;
+}
+
+.lightnav {
+    color: white;
+    font-weight: 400;
+    margin-left: 0.5%;
+    margin-right: 0.2%;
+    float: left;
+}
+
+
+.dropbtn1 {
+    color: white;
+    padding: 16px;
+    background-color: #2d2d2e;
+    border: transparent;
+}
+
+.dropdown1 {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: rgb(60, 70, 78);
+    color: white;
+    border: transparent;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content1 a {
+    color: white;
+    padding: 12px 16px;
+    font-size: 1rem;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content1 a:hover {
+    color: rgb(89, 203, 255);
+    border: transparent;
+    text-decoration: none;
+}
+
+.dropdown1:hover .dropdown-content1 {
+    display: block;
+}
+
+#mainnav {
+    font-size: 1.5rem;
+    font-weight: 100;
+    font-family: 'Share Tech';
+}
+
+#mainnav .nav-link {
+    color: white;
+    padding: 5px;
+    outline: transparent;
+}
+
+#mainnav .nav-link:hover {
+    color: rgb(89, 203, 255);
+}
+
+#mainnav .navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(89, 203, 255);
+}
+.navbar.scrolled {
+    background-color: #2d2d2e;
+}
+
+@media screen and (max-width: 768px) {
+    a i.fa-caret-down {
+        visibility: hidden;
+    }
+
+    .dropdown1:hover .dropdown-content1 {
+        display: none;
+    }
+
+}
+
+
+
+/* Navbar Class */

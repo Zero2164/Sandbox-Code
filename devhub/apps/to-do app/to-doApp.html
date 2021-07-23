@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <link rel="icon" href="assets/images/devHub.png">
+    <!-- TEMPLATE CSS File -->
+    <link rel="stylesheet" href="assets/css/CSS-Template.css">
+    <!-- Bootstrap 4 Plugin -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Font Awesome CSS File -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+    <!-- My CSS File -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- jQuery mini file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Google Fonts CSS CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ruda:wght@400;700;900&family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body class="todoappbody">
+    <!-- DEFAULT NAVBAR -->
+    <nav id="mainnav" class="navbar navbar-dark navbar-expand-md py-0 fixed-top scrolled">
+        <a href="../../index.html" class="navbar-brand">DevHub</a><span class="lightnav mr-auto"> |</span>
+        <button id="buttOp" class="navbar-toggler" data-toggle="collapse" data-target="#navlinks"
+            aria-label="Toggle Navigation">
+            <i id="opnFoldr" class="far fa-folder"></i>
+        </button>
+        <div id="myCollapsible" class="collapse navbar-collapse ml-auto pb-4 pb-md-0" id="navlinks">
+            <div class="d-flex flex-column-reverse align-items-center justify-content-center align-items-md-start justify-content-md-start flex-md-row pl-3">
+                <ul class="navbar-nav align-items-center align-self-md-center">
+                    <li class="nav-item d-inline-flex flex-row">
+                        <div class="btn-group">
+                            <div class="dropdown1">
+                                <button type="button" class="dropbtn1 nav-link">
+                                    <a href="../app-Index.html" class="nav-link"> Apps <i class="fas fa-caret-down"></i></a>
+                                </button>
+                                <div class="dropdown-content1">
+                                    <a href="../scorekeep app/skApp.html"><i class="fas fa-trophy"></i> Score Keeper </a>
+                                    <a href="to-doApp.html"><i class="far fa-calendar-check"></i> TO-DO List </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-inline-flex flex-row">
+                        <div class="btn-group">
+                            <div class="dropdown1">
+                                <button type="button" class="dropbtn1 nav-link">
+                                    <a href="../../projects/project-Index.html" class="nav-link"> Projects <i
+                                            class="fas fa-caret-down"></i></a>
+                                </button>
+                                <div class="dropdown-content1">
+                                    <a href="../../projects/ATLAS/ATLAS.html"><i class="fab fa-artstation"></i> ATLAS </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-inline-flex flex-row">
+                        <div class="btn-group">
+                            <div class="dropdown1">
+                                <button type="button" class="dropbtn1 nav-link">
+                                    <a href="../../codelibrary/codelib-Index.html" class="nav-link"> CodeLibrary <i
+                                            class="fas fa-caret-down"></i></a>
+                                </button>
+                                <div class="dropdown-content1">
+                                    <a href="../../codelibrary/blueprntz/blueprntz.html"><i class="fas fa-map"></i>
+                                        Blueprints </a>
+                                    <a href="../../codelibrary/donendusted/doneNdusted.html"><i
+                                            class="fas fa-clipboard-check"></i> Done N Dusted </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- DEFAULT NAVBAR -->
+
+    <div class="TodoApp">
+        <div id="container">
+            <div class="content">
+                <div class="title">
+                    <h1 class="todoTitle"><i class="far fa-calendar-check taskicon"></i> TO-DO LIST <i
+                            class="fas fa-cog settingz navIco"></i><i class="fa fa-plus navIco addToDo"></i></h1>
+                    <input type="text" placeholder="Add New Todo.." class="clearable">
+                </div>
+                <div id="menNav" class="menuBar">
+                    <div class="tooltipz"><span class="tooltiptextz">Undo?</span><button class="undoBtn undo"><i class="fas fa-undo-alt"></i></button></div>
+                    <div class="tooltipz"><span class="tooltiptextz">Undo Bulk Delete?</span><button
+                            class="undoBtnBulk undo"><i class="fas fa-undo-alt"></i></button></div>
+                    <div class="tooltipz"><span class="tooltiptextz">Delete All?</span><button class="deletAllbtn"><i
+                                class="fas fa-dumpster"></i></button></div>
+                    <button class="exitAppBtn"><i class="fas fa-sign-out-alt"></i></button>
+                </div>
+                <ul class="todoItmContain">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/tmp script.js"></script>
+</body>
+
+</html>

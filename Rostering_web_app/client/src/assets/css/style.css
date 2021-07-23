@@ -1,0 +1,49 @@
+body::-webkit-scrollbar, .noscroll::-webkit-scrollbar {
+    display: none !important;
+}
+  
+body, .noscroll {
+    -ms-overflow-style: none !important;  
+    scrollbar-width: none !important;  
+}
+
+.bgDark {
+    background-color: rgb(23, 41, 68) !important;
+}
+
+.fullBG {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.bg-light {
+    background-color: rgba(245, 245, 245, 0.534) !important;
+    color: red !important;
+    transition: 0.3s !important;
+}
+
+.text-light {
+    color: whitesmoke !important;
+}
+
+
+.text-dark {
+    color: rgb(23, 41, 68) !important;
+}
+  
+.text-center {
+    text-align: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+}
+  
+.centerPage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+  

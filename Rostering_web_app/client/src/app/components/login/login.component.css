@@ -1,0 +1,15 @@
+.loginBtn:hover {
+  transition: 0.3s !important;
+  background-color: whitesmoke !important;
+  color: rgb(23, 41, 68) !important;
+}
+
+.loginBtn {
+  border: 1px solid white;
+  width: 16rem !important;
+  border-radius: 25px;
+}
+
+h2 {
+  padding-bottom: 2rem !important;
+}

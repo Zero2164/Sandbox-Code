@@ -1,0 +1,99 @@
+mat-expansion-panel.contract  {
+  border-radius: 0 !important;
+  border-left: 4px solid transparent;
+}
+
+.workUnitTitle  {
+  color: whitesmoke;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.navFloat {
+  margin: 0 auto;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+mat-expansion-panel.contract, mat-expansion-panel.contract:hover, .routrActve{
+  transition: 0.2s !important;
+}
+
+.routrActve, mat-expansion-panel.contract:hover {
+  border-left: 4px solid rgb(216, 30, 5) !important;
+}
+
+.routrActve {
+  background: rgb(94, 94, 94) !important;
+  color: white !important;
+}
+
+.textActve, .mat-expansion-indicator {
+  color: whitesmoke !important;
+}
+
+.mat-nav-list {
+  overflow-x: hidden;
+}
+
+.searchForm {
+  width: 80%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.searchForm-width {
+  width: 100%;
+}
+
+.logOutBtn:hover {
+  transition: 0.3s !important;
+  background-color: whitesmoke !important;
+  color: rgb(23, 41, 68) !important;
+}
+
+.logOutBtn {
+  border: 1px solid white;
+  width: 16rem !important;
+  border-radius: 25px;
+}
+
+.darkMode {
+  padding: 1rem !important;
+}
+
+.dateFloat {
+  position: fixed;
+  bottom: 0;
+  margin: 1rem;
+  z-index: 1;
+}
+
+.chosenDate {
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: rgb(252, 252, 252);
+  background-color: rgb(214, 79, 61);
+  border-radius: 25px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  padding-left: 0.5rem;
+  display: inline;
+  width: 6rem;
+}

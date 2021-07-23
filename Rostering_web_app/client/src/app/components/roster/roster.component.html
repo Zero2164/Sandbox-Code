@@ -1,0 +1,89 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Work Unit</mat-toolbar>
+    <mat-divider></mat-divider>
+    <form class="searchForm">
+      <mat-form-field class="searchForm-width">
+        <mat-label>Search for a Work Unit</mat-label>
+        <input type="text" placeholder="Choose Work Unit" aria-label="Roster" matInput [formControl]="myControl"
+          [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+    <mat-divider></mat-divider>
+    <mat-nav-list>
+      <!-- Iterate over each work unit and display accordingly -->
+      <mat-accordion>
+        <mat-expansion-panel class="contract" (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+          *ngFor="let rostr of rosters" (click)="rosterNameChng(this.rostr.index, this.rostr.title)"
+          [ngClass]="{'routrActve' : this.rostr.index === rosterIndex}">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span [ngClass]="{'textActve' : this.rostr.index === rosterIndex}">
+                {{ rostr.title }}
+              </span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-selection-list #workGroups color="warn">
+            <mat-list-option (click)="workGroupVisible()" *ngFor="let workGroup of listOfWorkGroups">
+              <span class="workUnitTitle">{{workGroup}}</span>
+            </mat-list-option>
+          </mat-selection-list>
+          <ng-container *ngIf="workGroupActive">
+            <mat-list>
+              <mat-divider></mat-divider>
+              <mat-list-item *ngFor="let link of links" (click)="activeLink = link"
+                [ngClass]="{'bg-light' : activeLink == link}" class="text-light">{{link}}</mat-list-item>
+            </mat-list>
+          </ng-container>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="bgDark navFloat">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon" class="text-light">menu</mat-icon>
+      </button>
+      <span class="text-light text-center">{{ rosterName }}</span>
+      <button mat-mini-fab [matMenuTriggerFor]="menu" aria-label="user_menu" color="warn">
+        <mat-icon class="text-light">more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" class="drpDwnMenu">
+        <mat-slide-toggle (click)="darkMode()" color="warn" class="darkMode">Dark Mode</mat-slide-toggle>
+        <button mat-menu-item title="Configuration">
+          <mat-icon>settings</mat-icon>
+          <span>Config</span>
+        </button>
+        <button mat-menu-item title="Logout" routerLink="/">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+    <div class="container" *ngIf="workGroupActive">
+      <nav mat-tab-nav-bar mat-align-tabs="center">
+        <a mat-tab-link *ngFor="let link of links" (click)="activeLink = link" [active]="activeLink == link"
+          [ngClass]="{'bg-light' : activeLink == link}"> {{link}}
+        </a>
+        <a mat-tab-link (click)="addLink()" title="New Tab">
+          <mat-icon>add</mat-icon>
+        </a>
+      </nav>
+      <app-roster-table *ngIf="links"></app-roster-table>
+      <div class="dateFloat">
+        <button mat-mini-fab color="warn" (click)="picker.open()" (click)="calendarStyleChange()" title="Choose date">
+          <mat-icon>date_range</mat-icon>
+        </button>
+        <input [style]="cActive" class="chosenDate" matInput [matDatepicker]="picker">
+        <mat-datepicker color="warn" #picker></mat-datepicker>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

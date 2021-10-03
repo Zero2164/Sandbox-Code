@@ -227,7 +227,11 @@ function countDownTimerApp() {
 
 
     editBtn.addEventListener("click", () => {
+        inptHours.focus();
         editedBTN();
+    })
+    addBtn.addEventListener("click", () => {
+        inptHours.focus();
     })
     pauseBtn.addEventListener("click", () => {
         pauseBTN();

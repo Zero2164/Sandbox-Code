@@ -77,6 +77,8 @@ function countDownTimerApp() {
         seconds = Number(inptSeconds.value);
         if (isNaN(hours || minutes || seconds)) {
             alert("Not a number. Try again.");
+        } else if ((hours === 0) && (minutes === 0) && (seconds === 0)) {
+            window.location.reload();
         } else {
             addBtn.style.display = "none";
             editBtn.style.display = "inline";
@@ -225,7 +227,11 @@ function countDownTimerApp() {
 
 
     editBtn.addEventListener("click", () => {
+        inptHours.focus();
         editedBTN();
+    })
+    addBtn.addEventListener("click", () => {
+        inptHours.focus();
     })
     pauseBtn.addEventListener("click", () => {
         pauseBTN();

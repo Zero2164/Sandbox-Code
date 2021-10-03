@@ -34,7 +34,7 @@ body, html {
   height: 300px;
   width: 300px;
   margin: 0 auto;
-  padding-top: 4rem;
+  padding-top: 2rem;
 }
 
 /* Removes SVG styling that would hide the time label */
@@ -51,7 +51,7 @@ body, html {
 
 .base-timer__label {
   position: absolute;
-  padding-top: 2rem;
+  padding-top: 3rem;
 
   /* Size should match the parent container */
   width: 100%;

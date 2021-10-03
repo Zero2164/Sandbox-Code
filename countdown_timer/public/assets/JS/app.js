@@ -77,10 +77,9 @@ function countDownTimerApp() {
         seconds = Number(inptSeconds.value);
         if (isNaN(hours || minutes || seconds)) {
             alert("Not a number. Try again.");
-        } else if ((hours && minutes && seconds) === (0)) {
+        } else if ((hours === 0) && (minutes === 0) && (seconds === 0)) {
             window.location.reload();
-        } 
-        else {
+        } else {
             addBtn.style.display = "none";
             editBtn.style.display = "inline";
             TIME_LIMIT = hours += minutes += seconds;

@@ -5,6 +5,12 @@ body, html {
   overflow: hidden;
 }
 
+.modal-content {
+  background-color: rgb(44, 53, 58) !important;
+  color: whitesmoke;
+}
+
+
 .bttn-jelly {
     margin: 1rem;
 }

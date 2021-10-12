@@ -23,14 +23,12 @@ function countDownTimerApp() {
     let timerInterval = null;
 
 
-
     // obtain dom buttoms
     let editBtn = document.getElementById("btn-edit");
     let pauseBtn = document.getElementById("btn-pause");
     let playBtn = document.getElementById("btn-play");
     let sndBtn = document.getElementById("btn-sound");
     let muteBtn = document.getElementById("btn-mute");
-    let addBtn = document.getElementById("btn-add");
     let resetBtn = document.getElementById("btn-reset");
     let stopBtn = document.getElementById("btn-stop");
     let delBtn = document.getElementById("btn-del");
@@ -38,12 +36,13 @@ function countDownTimerApp() {
     let inptHours = document.getElementById("inpt-hours");
     let inptMinutes = document.getElementById("inpt-minutes");
     let inptSeconds = document.getElementById("inpt-seconds");
-
+    let notifications = document.getElementById("notify");
     // create variables for functions
     let isPaused = false;
     let hours = 0;
     let minutes = 0;
     let seconds = 0;
+    let alertMsg = "";
 
     document.getElementById("app").innerHTML = `...Loading...`
     document.getElementById("app").innerHTML = `
@@ -69,31 +68,88 @@ function countDownTimerApp() {
         </span>
         </div>
         `;
+        notifications.innerHTML = `
+        <div class="container d-flex justify-content-center pt-3">
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </symbol>
+        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+        </symbol>
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </symbol>
+        </svg>
+        <div class="alert alert-warning alert-dismissible fade show animate__animated animate__bounceInDown col-lg-6 col-xl-4" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <span id="alert-msg">
+        ${alertMsg}
+        </span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        </div>
+        `;
+    let notifymsg = document.getElementById("alert-msg");
+
 
 
     function getTime() {
         hours = Number(inptHours.value) * 60 * 60;
         minutes = Number(inptMinutes.value) * 60;
         seconds = Number(inptSeconds.value);
-        if (isNaN(hours || minutes || seconds)) {
-            alert("Not a number. Try again.");
+        if (isNaN(hours || minutes || seconds) || ((hours < 0) || (minutes < 0) || (seconds < 0))) {
+            ifValueFalse(true);
         } else if ((hours === 0) && (minutes === 0) && (seconds === 0)) {
-            window.location.reload();
-        } else {
-            addBtn.style.display = "none";
-            editBtn.style.display = "inline";
-            TIME_LIMIT = hours += minutes += seconds;
-            TIME_HISTORY = TIME_LIMIT;
-            timeLeft = TIME_LIMIT;
-            document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
-            isPaused = true;
-            pauseBTN();
-            startTimer();
+            ifValueFalse(false);
+        }else {
+            result();
         }
 
     }
 
+    function result() {
+        editBtn.style.display = "inline";
+        TIME_LIMIT = hours += minutes += seconds;
+        TIME_HISTORY = TIME_LIMIT;
+        timeLeft = TIME_LIMIT;
+        document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
+        isPaused = true;
+        pauseBTN();
+        startTimer();
+    }
+
+    function ifValueFalse(inptVal) {  
+        if(inptVal) {
+            alertMsg = "Invalid Value or Number. Try again.";
+            notifymsg.innerHTML = alertMsg;
+        } 
+        if (!inptVal) {
+            alertMsg = "Value cannot be 0. Try again."
+            notifymsg.innerHTML = alertMsg;
+        }
+        inptMinutes.value = null;
+        inptSeconds.value = null;
+        inptHours.value = null;
+        notifications.style.display = "inline";
+        notifications.className = "animate__animated animate__bounceInDown";
+        setTimeout(() => {
+            notifications.className = "animate__animated animate__bounceOutUp";
+            setTimeout(() => {notifications.style.display = "none";}, 1000);
+        }, 4000);
+
+        
+    }
+
+    function stoppedBTN() {
+        audio.pause();
+        stopBtn.style.display = "none";
+    }
+
     function editedBTN() {
+        audio.pause();
+        stopBtn.style.display = "none";
+        inptHours.focus();
         clearInterval(timerInterval);
         TIME_LIMIT = 0;
         timePassed = 0;
@@ -126,8 +182,7 @@ function countDownTimerApp() {
     }
 
     function resetTimeBtn() {
-        audio.pause();
-        stopBtn.style.display = "none";
+        stoppedBTN();
         document.querySelector('html').style.cursor = "progress";
         document.querySelector('button').style.cursor = "progress";
         setTimeout(() => {
@@ -139,7 +194,6 @@ function countDownTimerApp() {
         timeLeft = TIME_LIMIT;
         timePassed = 0;
         document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
-        addBtn.style.display = "none";
         resetBtn.style.display = "none";
         editBtn.style.display = "inline";
         isPaused = true;
@@ -215,7 +269,6 @@ function countDownTimerApp() {
                     pauseBtn.style.display = "none";
                     playBtn.style.display = "none";
                     editBtn.style.display = "none";
-                    addBtn.style.display = "inline";
                     stopBtn.style.display = "inline";
                     resetBtn.style.display = "inline";
                     setTimeout(() => {
@@ -229,11 +282,7 @@ function countDownTimerApp() {
 
 
     editBtn.addEventListener("click", () => {
-        inptHours.focus();
         editedBTN();
-    })
-    addBtn.addEventListener("click", () => {
-        inptHours.focus();
     })
     pauseBtn.addEventListener("click", () => {
         pauseBTN();
@@ -248,8 +297,7 @@ function countDownTimerApp() {
         mutedBTN();
     })
     stopBtn.addEventListener("click", () => {
-        audio.pause();
-        stopBtn.style.display = "none";
+        stoppedBTN();
     })
     resetBtn.addEventListener("click", () => {
         resetTimeBtn();

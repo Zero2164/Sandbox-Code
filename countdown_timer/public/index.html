@@ -12,6 +12,12 @@
     />
 
     <!-- Stylesheet Links:------------------------------------------------------------------------------ -->
+
+    <!-- Animate CSS lib -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <!-- Bttn CSS lib -->
     <link
       rel="stylesheet"
@@ -46,9 +52,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
   </head>
   <body>
+    <!-- Errors/Alerts -->
+    <div id="notify"></div>
+
     <!-- Loading Icon -->
     <div class="se-pre-con"></div>
-    <div id="app"></div>
     <div id="app"></div>
 
     <!-- CountDownTimer App HTML Body -->
@@ -63,44 +71,43 @@
       <button
         id="btn-edit"
         title="Change to new time"
-        class="bttn-jelly bttn-lg bttn-success"
+        class="bttn-jelly bttn-lg bttn-success d-none d-sm-inline"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
       >
         <i class="far fa-edit"></i>
       </button>
-
       <button
         id="btn-pause"
         title="Pause Timer"
         class="bttn-jelly bttn-lg mainBtn bttn-success"
       >
-      <i class="fas fa-pause"></i>
+        <i class="fas fa-pause"></i>
       </button>
       <button
         id="btn-play"
         title="Start Timer"
         class="bttn-jelly bttn-lg mainBtn bttn-success"
       >
-      <i class="fas fa-play"></i>
+        <i class="fas fa-play"></i>
       </button>
       <button
-        id="btn-add"
-        title="Add new time"
-        class="bttn-jelly bttn-lg bttn-success"
+      id="btn-stop"
+      title="Stop Timer"
+      class="bttn-jelly bttn-lg mainBtn bttn-danger"
+    >
+      <i class="fas fa-stop"></i>
+    </button>
+      <button
+        id="btn-edit"
+        title="Change to new time"
+        class="bttn-jelly bttn-lg bttn-success d-inline d-sm-none"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
       >
-        <i class="fas fa-plus"></i>
+        <i class="far fa-edit"></i>
       </button>
 
-      <button
-        id="btn-stop"
-        title="Stop Timer"
-        class="bttn-jelly bttn-lg mainBtn bttn-danger"
-      >
-        <i class="fas fa-stop"></i>
-      </button>
       <button
         id="btn-sound"
         title="Not Muted"
@@ -181,7 +188,7 @@
             <button
               data-bs-dismiss="modal"
               title="Close"
-              class="bttn-jelly bttn-md bttn-danger"
+              class="bttn-jelly bttn-md bttn-danger modalBtn"
             >
               <i class="fas fa-times"></i>
             </button>
@@ -189,9 +196,9 @@
               data-bs-dismiss="modal"
               title="Set Time"
               id="btn-timerset"
-              class="bttn-jelly bttn-md bttn-success"
+              class="bttn-jelly bttn-md bttn-success modalBtn"
             >
-              Set Time
+              <i class="fas fa-check"></i>
             </button>
           </div>
         </div>

@@ -98,7 +98,7 @@ function countDownTimerApp() {
         TIME_LIMIT = 0;
         timePassed = 0;
         isPaused = false;
-        getTime();
+
     }
 
     function playBTN() {
@@ -126,6 +126,8 @@ function countDownTimerApp() {
     }
 
     function resetTimeBtn() {
+        audio.pause();
+        stopBtn.style.display = "none";
         document.querySelector('html').style.cursor = "progress";
         document.querySelector('button').style.cursor = "progress";
         setTimeout(() => {

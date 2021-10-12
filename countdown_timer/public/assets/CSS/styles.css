@@ -5,6 +5,10 @@ body, html {
   overflow: hidden;
 }
 
+.mainBtn {
+  width: 6rem;
+}
+
 .modal-content {
   background-color: rgb(44, 53, 58) !important;
   color: whitesmoke;

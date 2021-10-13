@@ -86,11 +86,12 @@ function countDownTimerApp() {
         <span id="alert-msg">
         ${alertMsg}
         </span>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <button id="close-msg" type="button" class="btn-close" aria-label="Close"></button>
         </div>
         </div>
         `;
     let notifymsg = document.getElementById("alert-msg");
+    let closeMsg = document.getElementById("close-msg");
 
 
 
@@ -119,6 +120,11 @@ function countDownTimerApp() {
         startTimer();
     }
 
+    function dismissFunc() {
+        notifications.className = "animate__animated animate__bounceOutUp";
+        setTimeout(() => {notifications.style.display = "none";}, 1000);
+    }
+
     function ifValueFalse(inptVal) {  
         if(inptVal) {
             alertMsg = "Invalid Value or Number. Try again.";
@@ -134,8 +140,7 @@ function countDownTimerApp() {
         notifications.style.display = "inline";
         notifications.className = "animate__animated animate__bounceInDown";
         setTimeout(() => {
-            notifications.className = "animate__animated animate__bounceOutUp";
-            setTimeout(() => {notifications.style.display = "none";}, 1000);
+            dismissFunc();
         }, 4000);
 
         
@@ -307,6 +312,9 @@ function countDownTimerApp() {
     })
     timerSetBtn.addEventListener("click", () => {
         getTime();
+    })
+    closeMsg.addEventListener("click", () => {
+        dismissFunc();
     })
 
 };

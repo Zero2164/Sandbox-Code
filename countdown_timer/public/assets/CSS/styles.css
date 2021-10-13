@@ -46,7 +46,7 @@ body, html {
     margin: 1rem;
 }
 
-#btn-pause, #btn-play, #btn-mute, #btn-edit, #btn-reset, #btn-stop, #btn-del {
+#btn-pause, #btn-play, #btn-mute, #btn-edit-one, #btn-edit-two, #btn-reset, #btn-stop, #btn-del {
     display: none;
 }
 

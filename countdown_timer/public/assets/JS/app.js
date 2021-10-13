@@ -24,7 +24,8 @@ function countDownTimerApp() {
 
 
     // obtain dom buttoms
-    let editBtn = document.getElementById("btn-edit");
+    let editBtnOne = document.getElementById("btn-edit-one");
+    let editBtnTwo = document.getElementById("btn-edit-two");
     let pauseBtn = document.getElementById("btn-pause");
     let playBtn = document.getElementById("btn-play");
     let sndBtn = document.getElementById("btn-sound");
@@ -114,7 +115,6 @@ function countDownTimerApp() {
         clearInterval(timerInterval);
         TIME_LIMIT = 0;
         timePassed = 0;
-        editBtn.style.display = "inline";
         TIME_LIMIT = hours += minutes += seconds;
         TIME_HISTORY = TIME_LIMIT;
         timeLeft = TIME_LIMIT;
@@ -159,13 +159,14 @@ function countDownTimerApp() {
     }
 
     function editedBTN() {
+        inptHours.focus();
+        stopBtn.style.display = "none";
         if(timerStarted) {
             pauseBTN();
-        } else {
+        }
+        if (!timerStarted) {
             isPaused = true;
             audio.pause();
-            stopBtn.style.display = "none";
-            inptHours.focus();
         }
     }
 
@@ -207,7 +208,6 @@ function countDownTimerApp() {
         timePassed = 0;
         document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
         resetBtn.style.display = "none";
-        editBtn.style.display = "inline";
         isPaused = true;
         pauseBtn.style.display = "none";
         playBtn.style.display = "inline";
@@ -280,7 +280,6 @@ function countDownTimerApp() {
                     audio.play();
                     pauseBtn.style.display = "none";
                     playBtn.style.display = "none";
-                    editBtn.style.display = "none";
                     stopBtn.style.display = "inline";
                     resetBtn.style.display = "inline";
                     timerStarted = false;
@@ -294,7 +293,10 @@ function countDownTimerApp() {
     }
 
 
-    editBtn.addEventListener("click", () => {
+    editBtnOne.addEventListener("click", () => {
+        editedBTN();
+    })
+    editBtnTwo.addEventListener("click", () => {
         editedBTN();
     })
     pauseBtn.addEventListener("click", () => {

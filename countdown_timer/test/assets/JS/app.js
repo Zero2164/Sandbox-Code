@@ -24,7 +24,8 @@ function countDownTimerApp() {
 
 
     // obtain dom buttoms
-    let editBtn = document.getElementById("btn-edit");
+    let editBtnOne = document.getElementById("btn-edit-one");
+    let editBtnTwo = document.getElementById("btn-edit-two");
     let pauseBtn = document.getElementById("btn-pause");
     let playBtn = document.getElementById("btn-play");
     let sndBtn = document.getElementById("btn-sound");
@@ -43,6 +44,7 @@ function countDownTimerApp() {
     let minutes = 0;
     let seconds = 0;
     let alertMsg = "";
+    let timerStarted = false;
 
     document.getElementById("app").innerHTML = `...Loading...`
     document.getElementById("app").innerHTML = `
@@ -68,7 +70,7 @@ function countDownTimerApp() {
         </span>
         </div>
         `;
-        notifications.innerHTML = `
+    notifications.innerHTML = `
         <div class="container d-flex justify-content-center pt-3">
         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -103,47 +105,52 @@ function countDownTimerApp() {
             ifValueFalse(true);
         } else if ((hours === 0) && (minutes === 0) && (seconds === 0)) {
             ifValueFalse(false);
-        }else {
+        } else {
             result();
         }
 
     }
 
     function result() {
-        editBtn.style.display = "inline";
+        clearInterval(timerInterval);
+        TIME_LIMIT = 0;
+        timePassed = 0;
         TIME_LIMIT = hours += minutes += seconds;
         TIME_HISTORY = TIME_LIMIT;
         timeLeft = TIME_LIMIT;
         document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
         isPaused = true;
         pauseBTN();
+        timerStarted = true;
         startTimer();
     }
 
     function dismissFunc() {
         notifications.className = "animate__animated animate__bounceOutUp";
-        setTimeout(() => {notifications.style.display = "none";}, 1000);
+        setTimeout(() => { notifications.style.display = "none"; }, 1000);
     }
 
-    function ifValueFalse(inptVal) {  
-        if(inptVal) {
+    function ifValueFalse(inptVal) {
+        if (inptVal) {
             alertMsg = "Invalid Value or Number. Try again.";
             notifymsg.innerHTML = alertMsg;
-        } 
+        }
         if (!inptVal) {
             alertMsg = "Value cannot be 0. Try again."
             notifymsg.innerHTML = alertMsg;
         }
-        inptMinutes.value = null;
-        inptSeconds.value = null;
-        inptHours.value = null;
+        if (!timerStarted) {
+            inptMinutes.value = null;
+            inptSeconds.value = null;
+            inptHours.value = null;
+        }
         notifications.style.display = "inline";
         notifications.className = "animate__animated animate__bounceInDown";
         setTimeout(() => {
             dismissFunc();
         }, 4000);
 
-        
+
     }
 
     function stoppedBTN() {
@@ -152,14 +159,15 @@ function countDownTimerApp() {
     }
 
     function editedBTN() {
-        audio.pause();
-        stopBtn.style.display = "none";
         inptHours.focus();
-        clearInterval(timerInterval);
-        TIME_LIMIT = 0;
-        timePassed = 0;
-        isPaused = false;
-
+        stopBtn.style.display = "none";
+        if(timerStarted) {
+            pauseBTN();
+        }
+        if (!timerStarted) {
+            isPaused = true;
+            audio.pause();
+        }
     }
 
     function playBTN() {
@@ -200,7 +208,6 @@ function countDownTimerApp() {
         timePassed = 0;
         document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
         resetBtn.style.display = "none";
-        editBtn.style.display = "inline";
         isPaused = true;
         pauseBtn.style.display = "none";
         playBtn.style.display = "inline";
@@ -273,9 +280,9 @@ function countDownTimerApp() {
                     audio.play();
                     pauseBtn.style.display = "none";
                     playBtn.style.display = "none";
-                    editBtn.style.display = "none";
                     stopBtn.style.display = "inline";
                     resetBtn.style.display = "inline";
+                    timerStarted = false;
                     setTimeout(() => {
                         stopBtn.style.display = "none";
                     }, 21000)
@@ -286,7 +293,10 @@ function countDownTimerApp() {
     }
 
 
-    editBtn.addEventListener("click", () => {
+    editBtnOne.addEventListener("click", () => {
+        editedBTN();
+    })
+    editBtnTwo.addEventListener("click", () => {
         editedBTN();
     })
     pauseBtn.addEventListener("click", () => {

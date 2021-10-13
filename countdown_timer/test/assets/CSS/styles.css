@@ -18,6 +18,11 @@ body, html {
   display: none;
 }
 
+#close-msg:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .alert {
   position: relative;
   z-index: 99;

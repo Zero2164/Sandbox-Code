@@ -43,6 +43,7 @@ function countDownTimerApp() {
     let minutes = 0;
     let seconds = 0;
     let alertMsg = "";
+    let timerStarted = false;
 
     document.getElementById("app").innerHTML = `...Loading...`
     document.getElementById("app").innerHTML = `
@@ -68,7 +69,7 @@ function countDownTimerApp() {
         </span>
         </div>
         `;
-        notifications.innerHTML = `
+    notifications.innerHTML = `
         <div class="container d-flex justify-content-center pt-3">
         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -103,13 +104,16 @@ function countDownTimerApp() {
             ifValueFalse(true);
         } else if ((hours === 0) && (minutes === 0) && (seconds === 0)) {
             ifValueFalse(false);
-        }else {
+        } else {
             result();
         }
 
     }
 
     function result() {
+        clearInterval(timerInterval);
+        TIME_LIMIT = 0;
+        timePassed = 0;
         editBtn.style.display = "inline";
         TIME_LIMIT = hours += minutes += seconds;
         TIME_HISTORY = TIME_LIMIT;
@@ -117,33 +121,36 @@ function countDownTimerApp() {
         document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
         isPaused = true;
         pauseBTN();
+        timerStarted = true;
         startTimer();
     }
 
     function dismissFunc() {
         notifications.className = "animate__animated animate__bounceOutUp";
-        setTimeout(() => {notifications.style.display = "none";}, 1000);
+        setTimeout(() => { notifications.style.display = "none"; }, 1000);
     }
 
-    function ifValueFalse(inptVal) {  
-        if(inptVal) {
+    function ifValueFalse(inptVal) {
+        if (inptVal) {
             alertMsg = "Invalid Value or Number. Try again.";
             notifymsg.innerHTML = alertMsg;
-        } 
+        }
         if (!inptVal) {
             alertMsg = "Value cannot be 0. Try again."
             notifymsg.innerHTML = alertMsg;
         }
-        inptMinutes.value = null;
-        inptSeconds.value = null;
-        inptHours.value = null;
+        if (!timerStarted) {
+            inptMinutes.value = null;
+            inptSeconds.value = null;
+            inptHours.value = null;
+        }
         notifications.style.display = "inline";
         notifications.className = "animate__animated animate__bounceInDown";
         setTimeout(() => {
             dismissFunc();
         }, 4000);
 
-        
+
     }
 
     function stoppedBTN() {
@@ -152,14 +159,14 @@ function countDownTimerApp() {
     }
 
     function editedBTN() {
-        audio.pause();
-        stopBtn.style.display = "none";
-        inptHours.focus();
-        clearInterval(timerInterval);
-        TIME_LIMIT = 0;
-        timePassed = 0;
-        isPaused = false;
-
+        if(timerStarted) {
+            pauseBTN();
+        } else {
+            isPaused = true;
+            audio.pause();
+            stopBtn.style.display = "none";
+            inptHours.focus();
+        }
     }
 
     function playBTN() {
@@ -276,6 +283,7 @@ function countDownTimerApp() {
                     editBtn.style.display = "none";
                     stopBtn.style.display = "inline";
                     resetBtn.style.display = "inline";
+                    timerStarted = false;
                     setTimeout(() => {
                         stopBtn.style.display = "none";
                     }, 21000)
